@@ -1,0 +1,28 @@
+{
+  "name": "mern-starter",
+  "version": "1.0.0",
+  "description": "MERN Starter Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohamedsamara/MERN-Starter.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "mongoose",
+    "react",
+    "redux",
+    "redux-thunk",
+    "typescript"
+  ],
+  "author": "Mohamed Samara (https://github.com/mohamedsamara)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mohamedsamara/MERN-Starter/issues"
+  },
+  "homepage": "https://github.com/mohamedsamara/MERN-Starter#readme"
+}
