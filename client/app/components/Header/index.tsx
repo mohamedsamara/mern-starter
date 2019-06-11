@@ -6,13 +6,30 @@
 
 import * as React from 'react';
 
-import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
+} from 'reactstrap';
 
 import { Link } from 'react-router-dom';
 
-interface Props {}
+interface Props {
+  isMenuOpen: boolean;
+  toggleMenuAction: () => void;
+}
 
 const Header: React.FunctionComponent<Props> = props => {
+  const { isMenuOpen, toggleMenuAction } = props;
+
   return (
     <Navbar
       color='light'
@@ -22,22 +39,25 @@ const Header: React.FunctionComponent<Props> = props => {
       expand='md'
     >
       <NavbarBrand tag={Link} to='/'>
-        MERN Boilerplate
+        MERN TypeScript Boilerplate
       </NavbarBrand>
-      <Nav className='ml-auto' navbar>
-        <Nav navbar>
-          <NavItem>
-            <NavLink tag={Link} to='/login'>
-              Login
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink tag={Link} to='/signup'>
-              SignUp
-            </NavLink>
-          </NavItem>
+      <NavbarToggler onClick={toggleMenuAction} />
+      <Collapse isOpen={isMenuOpen} navbar>
+        <Nav className='ml-auto' navbar>
+          <Nav navbar>
+            <NavItem>
+              <NavLink tag={Link} to='/task'>
+                Tasks
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink tag={Link} to='/'>
+                Dashboard
+              </NavLink>
+            </NavItem>
+          </Nav>
         </Nav>
-      </Nav>
+      </Collapse>
     </Navbar>
   );
 };

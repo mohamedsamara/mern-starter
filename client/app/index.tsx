@@ -1,6 +1,6 @@
 /**
  *
- * index.js
+ * index.tsx
  * This is the entry file for the application, only render App component.
  */
 

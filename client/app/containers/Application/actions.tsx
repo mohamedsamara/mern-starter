@@ -4,10 +4,11 @@
  *
  */
 
-import { DEFAULT_ACTION } from './constants';
+// Import from filesystem using root folder to solve the warning emitted from typescript "There are multiple modules with names that only differ in casing."
+import { ApplicationActionTypes, ToggleMenuAction } from '../Application/types';
 
-export const defaultAction = () => {
+export const toggleMenu = (): ToggleMenuAction => {
   return {
-    type: DEFAULT_ACTION
+    type: ApplicationActionTypes.TOGGLE_MENU
   };
 };

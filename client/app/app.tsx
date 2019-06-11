@@ -1,6 +1,6 @@
 /**
  *
- * app.js
+ * app.tsx
  * This is the application component. setup and boilerplate
  */
 

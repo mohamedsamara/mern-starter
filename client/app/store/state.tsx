@@ -6,9 +6,13 @@
 
 import { RouterState } from 'connected-react-router';
 
-import { TaskState } from '../containers/Homepage/types';
+import { HomepageState } from '../containers/Homepage/types';
+import { ApplicationState } from '../containers/Application/types';
+import { TaskState } from '../containers/Task/types';
 
 export interface IAppState {
   router: RouterState;
-  homepage: TaskState;
+  application: ApplicationState;
+  homepage: HomepageState;
+  task: TaskState;
 }

@@ -8,26 +8,48 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 import { Container } from 'reactstrap';
+import { Dispatch } from 'redux';
+
+import { IAppState } from '../../store/state';
+
+import { toggleMenu } from './actions';
 
 // routes
 import HomePage from '../HomePage';
+import Task from '../Task';
 
+// layout components
 import Page404 from '../../components/Page404';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
-export class Application extends React.PureComponent {
+interface OwnProps {}
+
+interface DispatchProps {
+  toggleMenuAction: () => void;
+}
+
+interface StateProps {
+  isMenuOpen: boolean;
+}
+
+type Props = StateProps & OwnProps & DispatchProps;
+
+export class Application extends React.PureComponent<Props> {
   componentDidMount() {}
 
-  render() {
+  render(): JSX.Element {
+    const { isMenuOpen, toggleMenuAction } = this.props;
+
     return (
       <div className='application'>
-        <Header />
+        <Header isMenuOpen={isMenuOpen} toggleMenuAction={toggleMenuAction} />
         <main className='main'>
           <Container>
             <div className='wrapper'>
               <Switch>
                 <Route exact path='/' component={HomePage} />
+                <Route path='/task' component={Task} />
                 <Route path='*' component={Page404} />
               </Switch>
             </div>
@@ -39,12 +61,21 @@ export class Application extends React.PureComponent {
   }
 }
 
-const mapStateToProps = (state: any) => {
-  return {};
+const mapStateToProps = (state: IAppState) => {
+  return {
+    isMenuOpen: state.application.isMenuOpen
+  };
 };
 
-const mapDispatchToProps = (dispatch: any) => {
-  return {};
+const mapDispatchToProps = (
+  dispatch: Dispatch,
+  ownProps: OwnProps
+): DispatchProps => {
+  return {
+    toggleMenuAction: () => {
+      dispatch(toggleMenu());
+    }
+  };
 };
 
 export default connect(

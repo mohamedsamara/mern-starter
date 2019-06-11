@@ -10,8 +10,10 @@ import { ThunkDispatch } from 'redux-thunk';
 
 import { IAppState } from '../../store/state';
 
-import { Task } from './types';
-import { fetchTasks } from './actions';
+import { ITask } from '../Task/types';
+import { fetchTasks, addTask } from '../Task/actions';
+
+import TaskList from '../../components/TaskList';
 
 interface OwnProps {}
 
@@ -20,7 +22,7 @@ interface DispatchProps {
 }
 
 interface StateProps {
-  repositories: Task[];
+  tasks: ITask[];
 }
 
 type Props = StateProps & OwnProps & DispatchProps;
@@ -28,16 +30,19 @@ type Props = StateProps & OwnProps & DispatchProps;
 export class Homepage extends React.PureComponent<Props> {
   componentDidMount() {
     this.props.fetchData();
+    // this.props.postData();
   }
 
-  render() {
-    return <div>Navigation</div>;
+  render(): JSX.Element {
+    const { tasks } = this.props;
+
+    return <TaskList tasks={tasks} />;
   }
 }
 
 const mapStateToProps = (state: IAppState) => {
   return {
-    tasks: state.homepage.tasks
+    tasks: state.task.tasks
   };
 };
 
