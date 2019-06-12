@@ -34,7 +34,7 @@ const Header: React.FunctionComponent<Props> = props => {
     <Navbar
       color='light'
       sticky={'top'}
-      className='shadow-sm py-0 border-bottom'
+      className='shadow-sm border-bottom nav-menu'
       light
       expand='md'
     >
@@ -47,7 +47,7 @@ const Header: React.FunctionComponent<Props> = props => {
           <Nav navbar>
             <NavItem>
               <NavLink tag={Link} to='/task'>
-                Tasks
+                Task
               </NavLink>
             </NavItem>
             <NavItem>

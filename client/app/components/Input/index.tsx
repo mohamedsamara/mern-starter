@@ -23,7 +23,7 @@ const Input: React.FunctionComponent<Props> = props => {
   };
 
   return (
-    <div className='input-box'>
+    <div className='input-box form-group'>
       <label>{label}</label>
       <input
         autoComplete='off'
@@ -34,7 +34,7 @@ const Input: React.FunctionComponent<Props> = props => {
         name={name}
         value={value}
         placeholder={placeholder}
-        className={'input-text'}
+        className={'input-text form-control'}
       />
     </div>
   );

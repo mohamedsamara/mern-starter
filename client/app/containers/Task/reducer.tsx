@@ -14,6 +14,11 @@ const initialState: TaskState = {
   taskFormData: {
     name: '',
     description: ''
+  },
+  message: {
+    isActive: false,
+    text: '',
+    type: ''
   }
 };
 
@@ -27,11 +32,41 @@ const taskReducer: Reducer<TaskState, TaskActions> = (
         ...state,
         tasks: action.payload
       };
-
+    case TaskActionTypes.ADD_TASK_REQUEST:
+      return {
+        ...state,
+        tasks: [...state.tasks, action.payload]
+      };
+    case TaskActionTypes.DELETE_TASK_REQUEST:
+      return {
+        ...state,
+        tasks: [
+          ...state.tasks.slice(0, action.payload),
+          ...state.tasks.slice(action.payload + 1)
+        ]
+      };
     case TaskActionTypes.TASK_CHANGE:
       return {
         ...state,
         taskFormData: { ...state.taskFormData, ...action.payload }
+      };
+    case TaskActionTypes.TASK_MESSAGE:
+      return {
+        ...state,
+        message: { ...state.message, ...action.payload }
+      };
+    case TaskActionTypes.RESET_TASK_FIELDS:
+      return {
+        ...state,
+        taskFormData: {
+          name: '',
+          description: ''
+        },
+        message: {
+          isActive: false,
+          text: '',
+          type: ''
+        }
       };
     default:
       return state;

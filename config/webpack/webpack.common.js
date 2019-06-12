@@ -22,7 +22,31 @@ module.exports = {
         exclude: /(node_modules)/
       },
       { test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
-      { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' }
+      { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
+      {
+        test: /\.(png|jpg|jpeg|gif|svg|ico)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: 'images',
+              name: '[name].[hash].[ext]'
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: 'fonts',
+              name: '[name].[hash].[ext]'
+            }
+          }
+        ]
+      }
     ]
   },
   plugins: [

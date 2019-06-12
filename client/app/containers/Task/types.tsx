@@ -7,6 +7,7 @@
 export interface ITask {
   _id: number;
   name: string;
+  description: string;
 }
 
 export interface ITaskData {
@@ -14,14 +15,25 @@ export interface ITaskData {
   description: string;
 }
 
+export interface ITaskMessage {
+  isActive: boolean;
+  text: string;
+  type: string;
+}
+
 export enum TaskActionTypes {
   FETCH_TASKS_REQUEST = 'FETCH_TASKS_REQUEST',
-  TASK_CHANGE = 'TASK_CHANGE'
+  ADD_TASK_REQUEST = 'ADD_TASK_REQUEST',
+  DELETE_TASK_REQUEST = 'DELETE_TASK_REQUEST',
+  TASK_CHANGE = 'TASK_CHANGE',
+  TASK_MESSAGE = 'TASK_MESSAGE',
+  RESET_TASK_FIELDS = 'RESET_TASK_FIELDS'
 }
 
 export interface TaskState {
   tasks: ITask[];
   taskFormData: ITaskData;
+  message: ITaskMessage;
 }
 
 export interface FetchTaskAction {
@@ -29,9 +41,34 @@ export interface FetchTaskAction {
   payload: ITask[];
 }
 
+export interface AddTaskAction {
+  type: TaskActionTypes.ADD_TASK_REQUEST;
+  payload: ITask;
+}
+
+export interface DeleteTaskAction {
+  type: TaskActionTypes.DELETE_TASK_REQUEST;
+  payload: number;
+}
+
 export interface TaskChangeAction {
   type: TaskActionTypes.TASK_CHANGE;
   payload: ITaskData;
 }
 
-export type TaskActions = FetchTaskAction | TaskChangeAction;
+export interface TaskMessageAction {
+  type: TaskActionTypes.TASK_MESSAGE;
+  payload: ITaskMessage;
+}
+
+export interface TaskFieldsResetAction {
+  type: TaskActionTypes.RESET_TASK_FIELDS;
+}
+
+export type TaskActions =
+  | FetchTaskAction
+  | AddTaskAction
+  | DeleteTaskAction
+  | TaskChangeAction
+  | TaskMessageAction
+  | TaskFieldsResetAction;

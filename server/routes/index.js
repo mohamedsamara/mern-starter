@@ -12,7 +12,7 @@ router.get('/api/tasks', (req, res) => {
     .catch(err => next(err));
 });
 
-router.post('/api/task/add', function(req, res, next) {
+router.post('/api/task/add', (req, res, next) => {
   const task = new Task({
     name: req.body.name,
     description: req.body.description
@@ -20,6 +20,13 @@ router.post('/api/task/add', function(req, res, next) {
   task
     .save()
     .then(() => res.json(task))
+    .catch(err => next(err));
+});
+
+router.delete('/api/task/delete/:id', (req, res, next) => {
+  Task.deleteOne({ _id: req.params.id })
+    .exec()
+    .then(task => res.json())
     .catch(err => next(err));
 });
 

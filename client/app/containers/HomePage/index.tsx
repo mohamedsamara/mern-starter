@@ -10,51 +10,33 @@ import { ThunkDispatch } from 'redux-thunk';
 
 import { IAppState } from '../../store/state';
 
-import { ITask } from '../Task/types';
-import { fetchTasks, addTask } from '../Task/actions';
-
-import TaskList from '../../components/TaskList';
-
 interface OwnProps {}
 
-interface DispatchProps {
-  fetchData: () => void;
-}
+interface DispatchProps {}
 
-interface StateProps {
-  tasks: ITask[];
-}
+interface StateProps {}
 
 type Props = StateProps & OwnProps & DispatchProps;
 
 export class Homepage extends React.PureComponent<Props> {
-  componentDidMount() {
-    this.props.fetchData();
-    // this.props.postData();
-  }
+  componentDidMount() {}
 
   render(): JSX.Element {
-    const { tasks } = this.props;
+    const {} = this.props;
 
-    return <TaskList tasks={tasks} />;
+    return <div />;
   }
 }
 
 const mapStateToProps = (state: IAppState) => {
-  return {
-    tasks: state.task.tasks
-  };
+  return {};
 };
 
 const mapDispatchToProps = (
   dispatch: ThunkDispatch<{}, {}, any>,
   ownProps: OwnProps
 ): DispatchProps => {
-  return {
-    fetchData: () => {
-      dispatch(fetchTasks());
-    }
-  };
+  return {};
 };
 
 export default connect(

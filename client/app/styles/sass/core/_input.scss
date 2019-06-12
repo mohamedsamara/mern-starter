@@ -34,16 +34,23 @@ button[type='reset'] {
 }
 // end input button styles
 
-.input-box {
-  margin: 10px;
-}
-
 .input-box label {
   margin: 5px;
-  color: $gray;
+  color: $theme-blue;
+  font-size: $font-size-large;
+  font-weight: $font-weight-bold-light;
 }
 
 .input-btn {
-  max-width: 100px;
-  background-color: $theme-blue;
+  // max-width: 100px;
+  width: 100%;
+  border: $border-default !important;
+  border-width: 3px !important;
+  color: $black !important;
+  background-color: $btn-bg;
+
+  &:hover {
+    color: $white !important;
+    background-color: $btn-bg-hover;
+  }
 }

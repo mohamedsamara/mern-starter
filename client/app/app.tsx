@@ -13,6 +13,12 @@ import { History } from 'history';
 import Application from './containers/Application';
 import { IAppState } from './store/state';
 
+// Import Font Awesome Icons Set
+import 'font-awesome/css/font-awesome.min.css';
+
+// Import Simple Line Icons Set
+import 'simple-line-icons/css/simple-line-icons.css';
+
 // Import application sass styles
 import './styles/sass/style.scss';
 

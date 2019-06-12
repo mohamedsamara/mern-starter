@@ -13,7 +13,10 @@ import axios from 'axios';
 import {
   TaskState,
   FetchTaskAction,
+  AddTaskAction,
+  DeleteTaskAction,
   TaskChangeAction,
+  TaskFieldsResetAction,
   TaskActionTypes
 } from '../Task/types';
 
@@ -37,7 +40,7 @@ export const fetchTasks: ActionCreator<
 };
 
 export const addTask: ActionCreator<
-  ThunkAction<Promise<any>, {}, {}, AnyAction>
+  ThunkAction<Promise<any>, {}, TaskFieldsResetAction, AddTaskAction>
 > = () => {
   return async (
     dispatch: ThunkDispatch<{}, {}, AnyAction>,
@@ -46,7 +49,72 @@ export const addTask: ActionCreator<
     try {
       const task = getState().task.taskFormData;
 
-      const response = await axios.post('/api/task/add', task);
+      if ((task.name || task.description) == '') {
+        const error: any = {};
+        error.isActive = true;
+        error.text = 'the fields name and description are required';
+        error.type = 'danger';
+
+        dispatch({
+          type: TaskActionTypes.TASK_MESSAGE,
+          payload: error
+        });
+      } else {
+        const response = await axios.post('/api/task/add', task);
+
+        const success: any = {};
+        success.isActive = true;
+        success.text = 'new task was added';
+        success.type = 'success';
+
+        dispatch({
+          type: TaskActionTypes.ADD_TASK_REQUEST,
+          payload: response.data
+        });
+
+        dispatch({
+          type: TaskActionTypes.TASK_MESSAGE,
+          payload: success
+        });
+      }
+
+      setTimeout(() => {
+        dispatch({ type: TaskActionTypes.RESET_TASK_FIELDS });
+      }, 3000);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+};
+
+export const deleteTask: ActionCreator<
+  ThunkAction<Promise<any>, {}, {}, DeleteTaskAction>
+> = (id: number, index: number) => {
+  return async (
+    dispatch: ThunkDispatch<{}, {}, AnyAction>,
+    getState: () => IAppState
+  ) => {
+    try {
+      const response = await axios.delete('/api/task/delete/' + id);
+
+      const success: any = {};
+      success.isActive = true;
+      success.text = 'task was deleted';
+      success.type = 'success';
+
+      dispatch({
+        type: TaskActionTypes.TASK_MESSAGE,
+        payload: success
+      });
+
+      dispatch({
+        type: TaskActionTypes.DELETE_TASK_REQUEST,
+        payload: index
+      });
+
+      setTimeout(() => {
+        dispatch({ type: TaskActionTypes.RESET_TASK_FIELDS });
+      }, 3000);
     } catch (err) {
       console.error(err);
     }
