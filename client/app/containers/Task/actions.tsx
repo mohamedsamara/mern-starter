@@ -49,7 +49,7 @@ export const addTask: ActionCreator<
     try {
       const task = getState().task.taskFormData;
 
-      if ((task.name || task.description) == '') {
+      if ((task.name && task.description) == '') {
         const error: any = {};
         error.isActive = true;
         error.text = 'the fields name and description are required';

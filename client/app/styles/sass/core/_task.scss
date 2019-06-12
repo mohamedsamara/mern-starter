@@ -2,7 +2,7 @@
   @include flex();
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   padding: 20px;
   border: $border-default;
 
@@ -26,8 +26,28 @@
 
 .card-list .card {
   margin-bottom: 20px;
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -webkit-transform 0.2s;
+  -o-transition: transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
 
   &:hover {
-    border-color: $red;
+    border-color: $dark-border-color;
+    border-width: 2px;
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+
+  .input-btn {
+    color: $white !important;
+    background-color: $theme-light-blue;
+    border-width: 1px !important;
+
+    &:hover {
+      background-color: $red;
+      border-width: 1px !important;
+    }
   }
 }

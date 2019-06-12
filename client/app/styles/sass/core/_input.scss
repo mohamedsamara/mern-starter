@@ -26,6 +26,7 @@ button[type='reset'] {
   border: none;
   color: white;
   text-decoration: none;
+  text-transform: capitalize;
   cursor: pointer;
 
   &:focus {
@@ -42,7 +43,6 @@ button[type='reset'] {
 }
 
 .input-btn {
-  // max-width: 100px;
   width: 100%;
   border: $border-default !important;
   border-width: 3px !important;
@@ -53,4 +53,11 @@ button[type='reset'] {
     color: $white !important;
     background-color: $btn-bg-hover;
   }
+}
+
+@include placeholder {
+  font-style: italic;
+  font-size: $font-size-small;
+  line-height: $line-height;
+  text-transform: capitalize;
 }
