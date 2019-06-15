@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const chalk = require('chalk');
 const webpack = require('webpack');
 const webpackMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
@@ -23,7 +24,9 @@ app.use(cors());
 // Connect to MongoDB
 mongoose
   .connect(mongoURI, { useNewUrlParser: true })
-  .then(() => console.log('MongoDB Connected!'))
+  .then(() =>
+    console.log(`${chalk.green('✓')} ${chalk.blue('MongoDB Connected!')}`)
+  )
   .catch(err => console.log(err));
 
 app.use('/api', routes);
@@ -65,6 +68,8 @@ if (process.env.NODE_ENV !== 'production') {
 
 app.listen(PORT, () => {
   console.log(
-    `==> 🌎  Listening on port ${PORT}. Visit http://localhost:${PORT}/ in your browser.`
+    `${chalk.green('✓')} ${chalk.blue(
+      `Listening on port ${PORT}. Visit http://localhost:${PORT}/ in your browser.`
+    )}`
   );
 });

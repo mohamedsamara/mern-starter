@@ -1,6 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const NODE_ENV = process.env.NODE_ENV;
@@ -30,10 +29,6 @@ module.exports = {
       'process.env': {
         NODE_ENV: JSON.stringify(NODE_ENV)
       }
-    }),
-    new HtmlWebpackPlugin({
-      template: path.join(CURRENT_WORKING_DIR, 'client/public/index.html'),
-      inject: 'body'
     }),
     new CopyWebpackPlugin([
       {

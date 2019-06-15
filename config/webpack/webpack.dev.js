@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const CURRENT_WORKING_DIR = process.cwd();
 
@@ -56,7 +57,13 @@ module.exports = {
       }
     ]
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()],
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({
+      template: path.join(CURRENT_WORKING_DIR, 'client/public/index.html'),
+      inject: true
+    })
+  ],
   devServer: {
     port: 5000,
     open: true,
