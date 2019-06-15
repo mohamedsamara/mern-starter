@@ -15,6 +15,7 @@ import App from './app';
 const history = createBrowserHistory({
   basename: '/'
 });
+
 const store = configureStore(history);
 
 ReactDOM.render(

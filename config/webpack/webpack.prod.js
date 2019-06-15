@@ -30,6 +30,32 @@ module.exports = {
             loader: 'sass-loader'
           }
         ]
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif|svg|ico)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: 'images',
+              publicPath: '../fonts/',
+              name: '[name].[hash].[ext]'
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: 'fonts',
+              publicPath: '../fonts/',
+              name: '[name].[hash].[ext]'
+            }
+          }
+        ]
       }
     ]
   },
@@ -42,15 +68,16 @@ module.exports = {
     minimizer: [
       new TerserPlugin({
         terserOptions: {
-          parallel: true,
           warnings: false,
-          compress: true,
-          mangle: true,
+          parse: {},
+          compress: {},
+          mangle: false,
           module: false,
           output: null,
           toplevel: false,
           nameCache: null,
           ie8: false,
+          keep_classnames: undefined,
           keep_fnames: false,
           safari10: false
         }

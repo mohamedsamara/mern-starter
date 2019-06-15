@@ -67,7 +67,7 @@ export class Task extends React.PureComponent<Props> {
                 addTaskAction={addTaskAction}
               />
             </CardBody>
-          </Card>
+          </Card> 
         </UncontrolledCollapse>
         <TaskList
           tasks={tasks}

@@ -4,6 +4,8 @@ const webpack = require('webpack');
 const webpackMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const historyApiFallback = require('connect-history-api-fallback');
+const compression = require('compression');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const path = require('path');
 
@@ -16,12 +18,15 @@ const mongoURI = process.env.MONGO_URI;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors());
 
 // Connect to MongoDB
 mongoose
   .connect(mongoURI, { useNewUrlParser: true })
   .then(() => console.log('MongoDB Connected!'))
   .catch(err => console.log(err));
+
+app.use('/api', routes);
 
 // if development
 if (process.env.NODE_ENV !== 'production') {
@@ -51,14 +56,12 @@ if (process.env.NODE_ENV !== 'production') {
   app.use(webpackHotMiddleware(compiler));
   app.use(express.static(path.resolve(__dirname, '../dist')));
 } else {
+  app.use(compression());
   app.use(express.static(path.resolve(__dirname, '../dist')));
-  app.get('*', function(req, res) {
+  app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, '../dist/index.html'));
-    res.end();
   });
 }
-
-app.use('/', routes);
 
 app.listen(PORT, () => {
   console.log(

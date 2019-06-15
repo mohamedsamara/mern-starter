@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 const CURRENT_WORKING_DIR = process.cwd();
 
@@ -28,18 +29,43 @@ module.exports = {
             loader: 'sass-loader'
           }
         ]
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif|svg|ico)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: 'images',
+              name: '[name].[ext]'
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: 'fonts',
+              name: '[name].[ext]'
+            }
+          }
+        ]
       }
     ]
   },
+  plugins: [new webpack.HotModuleReplacementPlugin()],
   devServer: {
     port: 5000,
     open: true,
     inline: true,
     compress: true,
+    noInfo: true,
     hot: true,
     disableHostCheck: true,
     historyApiFallback: true,
-    stats: 'minimal',
     proxy: {
       '/api': 'http://localhost:5000'
     }
