@@ -131,8 +131,8 @@ module.exports = {
       name: 'MERN Boilerplate',
       short_name: 'MERN',
       description: 'MERN Boilerplate!',
-      background_color: '#fafafa',
-      theme_color: '#b1624d',
+      background_color: '#fff',
+      theme_color: '#4a68aa',
       inject: true,
       ios: true,
       icons: [

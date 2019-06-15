@@ -7,13 +7,13 @@
 import { Store, createStore, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { routerMiddleware } from 'connected-react-router';
-import { composeWithDevTools } from 'redux-devtools-extension';
 import { History } from 'history';
 
 import rootReducer from './reducers';
 import { IAppState } from './state';
 
 declare const module: any;
+declare const window: any;
 
 export default function configureStore(
   history: History
@@ -21,10 +21,15 @@ export default function configureStore(
   const middlewares = [thunk, routerMiddleware(history)];
   const enhancers = applyMiddleware(...middlewares);
 
-  const store = createStore(
-    rootReducer(history),
-    composeWithDevTools(enhancers)
-  );
+  // If Redux DevTools Extension is installed use it, otherwise use Redux compose
+  const composeEnhancers =
+    process.env.NODE_ENV !== 'production' &&
+    typeof window === 'object' &&
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+      ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
+      : compose;
+
+  const store = createStore(rootReducer(history), composeEnhancers(enhancers));
 
   // Hot reloading
   if (module.hot) {
