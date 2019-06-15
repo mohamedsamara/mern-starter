@@ -15,7 +15,7 @@ import { IAppState } from '../../store/state';
 import { toggleMenu } from './actions';
 
 // routes
-import HomePage from '../HomePage';
+import Homepage from '../Homepage';
 import Task from '../Task';
 
 // layout components
@@ -48,7 +48,7 @@ export class Application extends React.PureComponent<Props> {
           <Container>
             <div className='wrapper'>
               <Switch>
-                <Route exact path='/' component={HomePage} />
+                <Route exact path='/' component={Homepage} />
                 <Route path='/task' component={Task} />
                 <Route path='*' component={Page404} />
               </Switch>
