@@ -6,13 +6,11 @@
   * Mongoose schemas to model the application data
   * React for displaying UI components
   * Redux to manage apllication's state
-  * Redux Thunk middleware to handle asynchronous redux actions  
-
+  * Redux Thunk middleware to handle asynchronous redux actions
 
 ## Demo
-	
-This application is deployed on Heroku. Please check it out :smile: [here](https://calm-waters-13690.herokuapp.com/).
 
+This application is deployed on Heroku. Please check it out :smile: [here](https://calm-waters-13690.herokuapp.com/).
 
 ## Install
 
@@ -29,7 +27,7 @@ $ npm install
 
 ```
 > .env file must be added to run the application
-> .env file should include PORT & MONGO_URI
+> .env file must include PORT & MONGO_URI
 
 ```
 
@@ -37,19 +35,23 @@ $ npm install
 
 ```
 > Procfile should be added with the following command **web: npm run start:production**
-> Make sure all modules listed under dependencies and no devDependencies
+> Make sure all modules are listed under dependencies and no devDependencies
 
 ```
 
-
 ## Run the application for development
 
+```
 $ npm start
+
+```
 
 ## Run the application for production
 
+```
 $ npm run start:production
 
+```
 
 ## Languages & tools
 
