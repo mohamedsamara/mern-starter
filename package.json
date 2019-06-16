@@ -22,7 +22,8 @@
     "react",
     "redux",
     "redux-thunk",
-    "typescript"
+    "typescript",
+    "webpack"
   ],
   "author": "Mohamed Samara (https://github.com/mohamedsamara)",
   "license": "ISC",

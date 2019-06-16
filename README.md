@@ -2,9 +2,17 @@
 
 * features:
   * Node provides the backend environment for this application
-  * Express middleware is used to handle requests, routes and views
+  * Express middleware is used to handle requests, routes
   * Mongoose schemas to model the application data
   * React for displaying UI components
+  * Redux to manage apllication's state
+  * Redux Thunk middleware to handle asynchronous redux actions  
+
+
+## Demo
+	
+This application is deployed on Heroku. Please check it out :smile: [here](https://calm-waters-13690.herokuapp.com/).
+
 
 ## Install
 
@@ -17,14 +25,30 @@ $ npm install
 
 ```
 
+## Setup
+
+```
+> .env file must be added to run the application
+> .env file should include PORT & MONGO_URI
+
+```
+
+## Heroku Deployment
+
+```
+> Procfile should be added with the following command **web: npm run start:production**
+> Make sure all modules listed under dependencies and no devDependencies
+
+```
+
 
 ## Run the application for development
 
-npm start
+$ npm start
 
 ## Run the application for production
 
-npm run start:production
+$ npm run start:production
 
 
 ## Languages & tools
