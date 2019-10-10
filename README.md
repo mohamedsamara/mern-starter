@@ -17,7 +17,7 @@ This application is deployed on Heroku. Please check it out :smile: [here](https
 Some basic Git commands are:
 
 ```
-$ git clone https://github.com/mohamedsamara/MERN-Starter.git
+$ git clone https://github.com/mohamedsamara/mern-starter.git
 $ cd project
 $ npm install
 
