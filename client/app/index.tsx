@@ -1,7 +1,7 @@
 /**
  *
  * index.tsx
- * This is the entry file for the application, only render App component.
+ * This is the entry file for the application
  */
 
 import * as React from 'react';

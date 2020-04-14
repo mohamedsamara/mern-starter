@@ -66,7 +66,7 @@ const Footer: React.FunctionComponent<Props> = props => {
         </div>
 
         <div className='footer-copyright'>
-          <span>© {new Date().getFullYear()} MERN TypeScript Boilerplate</span>
+          <span>© {new Date().getFullYear()}MERN Starter</span>
         </div>
         <ul className='footer-social-item'>
           <li>

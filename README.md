@@ -35,7 +35,14 @@ $ npm install
 
 ```
 > Procfile should be added with the following command **web: npm run start:production**
-> Make sure all modules are listed under dependencies and no devDependencies
+> Make sure all modules are listed under dependencies in package.json
+
+```
+
+## Simple build for production
+
+```
+$ npm run production
 
 ```
 

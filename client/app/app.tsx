@@ -1,7 +1,7 @@
 /**
  *
  * app.tsx
- * This is the application component. setup and boilerplate
+ *
  */
 
 import * as React from 'react';

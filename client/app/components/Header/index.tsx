@@ -32,26 +32,26 @@ const Header: React.FunctionComponent<Props> = props => {
 
   return (
     <Navbar
-      color='light'
+      color="light"
       sticky={'top'}
-      className='shadow-sm border-bottom nav-menu'
+      className="shadow-sm border-bottom nav-menu"
       light
-      expand='md'
+      expand="md"
     >
-      <NavbarBrand tag={Link} to='/'>
-        MERN TypeScript Boilerplate
+      <NavbarBrand tag={Link} to="/">
+        MERN Starter
       </NavbarBrand>
       <NavbarToggler onClick={toggleMenuAction} />
       <Collapse isOpen={isMenuOpen} navbar>
-        <Nav className='ml-auto' navbar>
+        <Nav className="ml-auto" navbar>
           <Nav navbar>
             <NavItem>
-              <NavLink tag={Link} to='/task'>
+              <NavLink tag={Link} to="/task">
                 Task
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink tag={Link} to='/'>
+              <NavLink tag={Link} to="/">
                 Dashboard
               </NavLink>
             </NavItem>

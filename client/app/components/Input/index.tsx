@@ -28,7 +28,7 @@ const Input: React.FunctionComponent<Props> = props => {
       <input
         autoComplete='off'
         type={type}
-        onChange={e => {
+        onChange={e => { 
           onChange(e);
         }}
         name={name}

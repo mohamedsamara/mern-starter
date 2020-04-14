@@ -18,13 +18,13 @@ interface Props {
   addTaskAction: () => void;
 }
 
-const AddTask: React.FunctionComponent<Props> = props => {
+const AddTask: React.FunctionComponent<Props> = (props) => {
   const { taskFormData, taskChangeAction, addTaskAction } = props;
 
   return (
     <Container>
       <Row>
-        <Col xs='12' sm='6'>
+        <Col xs="12" sm="6">
           <FormGroup>
             <Input
               type={'text'}
@@ -38,7 +38,7 @@ const AddTask: React.FunctionComponent<Props> = props => {
             />
           </FormGroup>
         </Col>
-        <Col xs='12' sm='6'>
+        <Col xs="12" sm="6">
           <FormGroup>
             <Input
               type={'text'}
@@ -53,10 +53,10 @@ const AddTask: React.FunctionComponent<Props> = props => {
           </FormGroup>
         </Col>
         <hr />
-        <Col xs='12' md={{ size: 6, offset: 3 }}>
+        <Col xs="12" md={{ size: 6, offset: 3 }}>
           <button
-            className='input-btn'
-            type='submit'
+            className="input-btn"
+            type="submit"
             onClick={() => addTaskAction()}
           >
             Add Task

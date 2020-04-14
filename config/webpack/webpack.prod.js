@@ -12,7 +12,6 @@ module.exports = {
   output: {
     path: path.join(CURRENT_WORKING_DIR, '/dist'),
     filename: 'js/[name].[hash].js',
-    chunkFilename: 'js/[name].[chunkhash].js',
     publicPath: '/'
   },
   module: {
@@ -101,9 +100,7 @@ module.exports = {
           output: {
             comments: false,
             ascii_only: true
-          },
-          parallel: true,
-          sourceMap: true
+          }
         }
       })
     ]
@@ -129,21 +126,21 @@ module.exports = {
       filename: 'css/[name].[hash].css'
     }),
     new WebpackPwaManifest({
-      name: 'MERN Boilerplate',
-      short_name: 'MERN',
-      description: 'MERN Boilerplate!',
+      name: 'MERN Starter',
+      short_name: 'MERNStarter',
+      description: 'MERN Starter!',
       background_color: '#fff',
       theme_color: '#4a68aa',
       inject: true,
       ios: true,
       icons: [
         {
-          src: path.resolve('client/public/images/icon-512x512.png'),
+          src: path.resolve('client/public/images/pwa.png'),
           destination: 'images',
           sizes: [72, 96, 128, 144, 192, 384, 512]
         },
         {
-          src: path.resolve('client/public/images/icon-512x512.png'),
+          src: path.resolve('client/public/images/pwa.png'),
           sizes: [120, 152, 167, 180],
           destination: 'images',
           ios: true

@@ -1,14 +1,15 @@
 {
   "name": "mern-starter",
   "version": "1.0.0",
-  "description": "MERN Starter Application",
+  "description": "MERN Starter",
   "main": "server/index.js",
   "scripts": {
     "build": "npm run build:clean && cross-env NODE_ENV=production webpack --progress --colors",
     "build:clean": "rimraf ./dist",
     "start": "cross-env NODE_ENV=development nodemon server",
-    "start:prod": "cross-env NODE_ENV=production node server",
-    "start:production": "npm run build && npm run start:prod",
+    "start:production": "cross-env NODE_ENV=production node server",
+    "production": "npm run build",
+    "postinstall": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

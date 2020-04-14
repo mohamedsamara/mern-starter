@@ -32,15 +32,13 @@ export class Homepage extends React.PureComponent<Props> {
           <Container fluid>
             <h3 className='title'>MERN & TypeScript</h3>
             <p className='lead'>
-              This boilerplate is built for developers who want to develop
+              This starter is built for developers who want to develop
               applications faster. This is just a simple foundation with basic
               example to explain how everyhting works on both backend and
-              frontend side.
+              frontend side.  
             </p>
             <p className='lead'>
-              TypeScript is implemented in this boilerplate in order to use
-              types in JavaScript which makes the code easier to read and to
-              avoid errors as well.
+              TypeScript is implemented in this project to make the code easier to read and simple to debug.
             </p>
             <ListGroup>
               <ListGroupItem>
