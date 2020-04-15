@@ -10,7 +10,7 @@
 
 ## Demo
 
-This application is deployed on Heroku. Please check it out :smile: [here](https://calm-waters-13690.herokuapp.com/).
+This application is deployed on Heroku. Please check it out :smile: [here](https://afternoon-harbor-06612.herokuapp.com/).
 
 ## Install
 
@@ -28,14 +28,6 @@ $ npm install
 ```
 > .env file must be added to run the application
 > .env file must include PORT & MONGO_URI
-
-```
-
-## Heroku Deployment
-
-```
-> Procfile should be added with the following command **web: npm run start:production**
-> Make sure all modules are listed under dependencies in package.json
 
 ```
 
