@@ -26,7 +26,7 @@ $ npm install
 ## Setup
 
 ```
-> Create.env file that include PORT & MONGO_URI
+> Create .env file that include PORT & MONGO_URI
 
 ```
 
