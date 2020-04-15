@@ -10,7 +10,7 @@
 
 ## Demo
 
-This application is deployed on Heroku. Please check it out :smile: [here](https://afternoon-harbor-06612.herokuapp.com/).
+This application is deployed on Heroku. Please check it out :smile: [here](https://protected-meadow-39132.herokuapp.com/).
 
 ## Install
 
@@ -26,8 +26,7 @@ $ npm install
 ## Setup
 
 ```
-> .env file must be added to run the application
-> .env file must include PORT & MONGO_URI
+> Create.env file that include PORT & MONGO_URI
 
 ```
 
