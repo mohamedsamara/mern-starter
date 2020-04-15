@@ -56,7 +56,6 @@ button[type='reset'] {
 }
 
 @include placeholder {
-  font-style: italic;
   font-size: $font-size-small;
   line-height: $line-height;
   text-transform: capitalize;

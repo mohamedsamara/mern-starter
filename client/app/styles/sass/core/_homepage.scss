@@ -1,5 +1,11 @@
 .homepage {
   .title {
-    font-size: $font-size-heading-x-large !important;
+    font-size: $font-size-heading-large !important;
+  }
+
+  .list-group {
+    .list-group-item {
+      font-size: $font-size-large !important;
+    }
   }
 }

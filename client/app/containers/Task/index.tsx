@@ -46,15 +46,15 @@ export class Task extends React.PureComponent<Props> {
       message,
       addTaskAction,
       deleteTaskAction,
-      taskChangeAction
+      taskChangeAction,
     } = this.props;
 
     return (
       <div className='task'>
-        {message.isActive && <Message message={message} />}
+        <Message message={message} />
         <div className='task-header'>
           <h2>Add Task</h2>
-          <i className='fa fa-plus-circle fa-2x' id='toggler' />
+          <i className='plus-icon' id='toggler' />
         </div>
         <UncontrolledCollapse toggler='#toggler' className='task-toggle'>
           <Card>
@@ -67,7 +67,7 @@ export class Task extends React.PureComponent<Props> {
                 addTaskAction={addTaskAction}
               />
             </CardBody>
-          </Card> 
+          </Card>
         </UncontrolledCollapse>
         <TaskList
           tasks={tasks}
@@ -84,7 +84,7 @@ const mapStateToProps = (state: IAppState) => {
   return {
     tasks: state.task.tasks,
     message: state.task.message,
-    taskFormData: state.task.taskFormData
+    taskFormData: state.task.taskFormData,
   };
 };
 
@@ -104,11 +104,8 @@ const mapDispatchToProps = (
     },
     taskChangeAction: (name: string, value: string) => {
       dispatch(taskChange(name, value));
-    }
+    },
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Task);
+export default connect(mapStateToProps, mapDispatchToProps)(Task);

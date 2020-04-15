@@ -10,7 +10,7 @@ const CURRENT_WORKING_DIR = process.cwd();
 module.exports = {
   mode: 'production',
   output: {
-    path: path.join(CURRENT_WORKING_DIR, '/dist'),
+    path: path.join(CURRENT_WORKING_DIR, 'dist'),
     filename: 'js/[name].[hash].js',
     publicPath: '/'
   },
@@ -41,7 +41,7 @@ module.exports = {
             loader: 'file-loader',
             options: {
               outputPath: 'images',
-              publicPath: '../images/',
+              publicPath: '../images',
               name: '[name].[hash].[ext]'
             }
           }
@@ -54,7 +54,7 @@ module.exports = {
             loader: 'file-loader',
             options: {
               outputPath: 'fonts',
-              publicPath: '../fonts/',
+              publicPath: '../fonts',
               name: '[name].[hash].[ext]'
             }
           }

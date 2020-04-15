@@ -24,13 +24,13 @@ const AddTask: React.FunctionComponent<Props> = (props) => {
   return (
     <Container>
       <Row>
-        <Col xs="12" sm="6">
+        <Col xs='12' sm='6'>
           <FormGroup>
             <Input
               type={'text'}
-              label={'Task'}
+              label={'Name'}
               name={'name'}
-              placeholder={'Please Enter Your Task Name'}
+              placeholder={'Task Name'}
               value={taskFormData.name}
               onInputChange={(name: string, value: string) => {
                 taskChangeAction(name, value);
@@ -38,13 +38,13 @@ const AddTask: React.FunctionComponent<Props> = (props) => {
             />
           </FormGroup>
         </Col>
-        <Col xs="12" sm="6">
+        <Col xs='12' sm='6'>
           <FormGroup>
             <Input
               type={'text'}
               label={'Description'}
               name={'description'}
-              placeholder={'Please Enter Your Description'}
+              placeholder={'Task Description'}
               value={taskFormData.description}
               onInputChange={(name: string, value: string) => {
                 taskChangeAction(name, value);
@@ -53,10 +53,10 @@ const AddTask: React.FunctionComponent<Props> = (props) => {
           </FormGroup>
         </Col>
         <hr />
-        <Col xs="12" md={{ size: 6, offset: 3 }}>
+        <Col xs='12' md={{ size: 6 }}>
           <button
-            className="input-btn"
-            type="submit"
+            className='input-btn'
+            type='submit'
             onClick={() => addTaskAction()}
           >
             Add Task

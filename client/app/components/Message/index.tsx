@@ -14,15 +14,16 @@ interface Props {
   message: ITaskMessage;
 }
 
-const Message: React.FunctionComponent<Props> = props => {
+const Message: React.FunctionComponent<Props> = (props) => {
   const { message } = props;
 
   return (
     <div className='message-box'>
-      <Alert color={message.type}>
-        <p>{message.text}</p>
-      </Alert>
-      <hr />
+      {message.isActive && (
+        <Alert color={message.type}>
+          <p>{message.text}</p>
+        </Alert>
+      )}
     </div>
   );
 };

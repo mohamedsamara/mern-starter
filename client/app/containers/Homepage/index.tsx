@@ -30,15 +30,10 @@ export class Homepage extends React.PureComponent<Props> {
       <div className='homepage'>
         <Jumbotron fluid>
           <Container fluid>
-            <h3 className='title'>MERN & TypeScript</h3>
+            <h3 className='title'>MERN Starter</h3>
             <p className='lead'>
-              This starter is built for developers who want to develop
-              applications faster. This is just a simple foundation with basic
-              example to explain how everyhting works on both backend and
-              frontend side.  
-            </p>
-            <p className='lead'>
-              TypeScript is implemented in this project to make the code easier to read and simple to debug.
+              This project provides a template starter for MERN stack with
+              TypeScript and Webpack.
             </p>
             <ListGroup>
               <ListGroupItem>
@@ -61,6 +56,10 @@ export class Homepage extends React.PureComponent<Props> {
                 <i className='icon-check' />
                 TypeScript
               </ListGroupItem>
+              <ListGroupItem>
+                <i className='icon-check' />
+                Webpack
+              </ListGroupItem>
             </ListGroup>
           </Container>
         </Jumbotron>
@@ -80,7 +79,4 @@ const mapDispatchToProps = (
   return {};
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Homepage);
+export default connect(mapStateToProps, mapDispatchToProps)(Homepage);
