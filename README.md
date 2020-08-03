@@ -20,35 +20,30 @@ Some basic Git commands are:
 $ git clone https://github.com/mohamedsamara/mern-starter.git
 $ cd project
 $ npm install
-
 ```
 
 ## Setup
 
 ```
 > Create .env file that include PORT & MONGO_URI
-
 ```
 
 ## Simple build for production
 
 ```
 $ npm run production
-
 ```
 
 ## Run the application for development
 
 ```
 $ npm start
-
 ```
 
 ## Run the application for production
 
 ```
 $ npm run start:production
-
 ```
 
 ## Languages & tools
