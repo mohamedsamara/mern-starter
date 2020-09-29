@@ -8,9 +8,6 @@
   * Redux to manage application's state
   * Redux Thunk middleware to handle asynchronous redux actions
 
-## Demo
-
-This application is deployed on Heroku. Please check it out :smile: [here](https://protected-meadow-39132.herokuapp.com/).
 
 ## Install
 
