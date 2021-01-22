@@ -34,7 +34,7 @@
   "homepage": "https://github.com/mohamedsamara/mern-starter#readme",
   "dependencies": {
     "@material-ui/core": "^4.0.2",
-    "axios": "^0.19.0",
+    "axios": ">=0.21.1",
     "bootstrap": "^4.3.1",
     "compression": "^1.7.4",
     "connect-history-api-fallback": "^1.6.0",
